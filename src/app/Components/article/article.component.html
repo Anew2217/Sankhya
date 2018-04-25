@@ -1,0 +1,51 @@
+<div class="row">
+
+  <div class="col-md-2"></div>
+
+  <div class="col-md-8 row">
+
+    <h1 class="text-center col-md-12"><em>{{article.titulo}}</em></h1>
+
+    <br/>
+
+    <p class="col-md-12 text-justify">{{article.conteudo}}</p>
+
+    <h5 class="text-right col-md-12"><em>{{article.autor}}</em></h5>
+
+    <div class="col-md-5"></div>
+
+    <button class="text-center btn btn-primary col-md-2" routerLink="/EditArticle/{{article.id}}">Edit</button>
+
+    <div class="col-md-5"></div>
+    <br/>
+
+    <hr class="col-md-12" />
+
+    <div class="h3 col-md-12">Comments</div>
+
+    <div class="panel-group col-md-12">
+      <div *ngFor="let comment of comments" class="panel panel-success">
+        <div class="panel-heading"><em>{{comment.autor}}</em></div>
+        <div class="panel-body">{{comment.texto}}</div>
+      </div>
+    </div>
+
+    <hr/>
+
+    <div class="h3 col-md-12">New Comment
+      <br/>
+    </div>
+
+    <div class="form-group col-md-12">
+      <label>Name</label>
+      <input class="form-control" [(ngModel)]="newComment.autor"/>
+
+      <label>Comment</label>
+      <textarea class="form-control" [(ngModel)]="newComment.texto"></textarea>      
+    </div>
+    <button class="btn btn-primary" (click)="saveComment()">Save</button>
+  </div>
+
+  <div class="col-md-2"></div>
+
+</div>

@@ -1,0 +1,75 @@
+<br/>
+<div class="row">
+
+  <div class="col-md-2"></div>
+
+  <div class="col-md-8">
+
+
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        <h4>Search</h4>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+
+          <div class="form-group col-md-4">
+            <label>Title:</label>
+            <input class="form-control" [(ngModel)]="FilterTitulo"/>
+          </div>
+
+          <div class="form-group col-md-4">
+            <label>Writer:</label>
+            <input class="form-control" [(ngModel)]="FilterAutor"/>
+          </div>
+
+          <div class="form-group col-md-4">
+            <label>Category</label>
+            <input class="form-control" [(ngModel)]="FilterCategoria"/>
+          </div>
+
+          <div class="container col-md-12">
+            <button class="btn btn-primary col-md-3" (click)="filter()">Filter</button>
+            <div class="col-md-1"></div>
+            <button class="btn btn-primary col-md-3" (click)="clean()" >Clean</button>
+            <div class="col-md-1"></div>
+            <button class="btn btn-primary col-md-3" routerLink="/EditArticle/0" >Add Article</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        <h4>Articles</h4>
+      </div>
+      <div class="panel-body">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Category</th>
+              <th>Author</th>
+              <th>Edit</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let article of articles">
+              <td><a routerLink="/Article/{{article.id}}">{{article.titulo}}</a></td>
+              <td>{{article.categoria}}</td>
+              <td>{{article.autor}}</td>
+              <td><button class="btn btn-primary btn-sm" routerLink="/EditArticle/{{article.id}}">Edit</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+
+  </div>
+
+  <div class="col-md-2"></div>
+
+</div>
